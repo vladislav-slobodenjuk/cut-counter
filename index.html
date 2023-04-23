@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,19 +7,19 @@
     <title>Cut counter</title>
     <link rel="stylesheet" href="css/common.css" />
     <style>
-      .login-form {
+      .product-form {
         max-width: 320px;
         display: flex;
         flex-direction: column;
       }
 
-      .login-form label {
+      .product-form label {
         margin-bottom: 16px;
       }
 
-      .login-form input,
-      .login-form select,
-      .login-form button {
+      .product-form input,
+      .product-form select,
+      .product-form button {
         width: 100%;
         padding: 4px;
         font: inherit;
@@ -27,23 +27,26 @@
     </style>
   </head>
   <body>
-    <form class="login-form">
+    <form class="product-form">
       <label>
-        Product
-        <select name="select">
+        Продукция
+        <select name="product">
           <!--Supplement an id here instead of using 'name'-->
-          <option value="value1">Значение 1</option>
-          <option value="value2">Значение 2</option>
-          <option value="value3">Значение 3</option>
+          <option value="hartBlue">Синие Сердца</option>
+          <option value="bars_16">Батончики по 16</option>
+          <option value="guliver_20">Гуливер по 20</option>
+          <option value="nightMix">Шок. Ночь Микс</option>
         </select>
       </label>
       <label>
-        Amount
-        <input type="number" name="amount" />
+        Количество ящиков
+        <input type="number" min="1" name="amount" />
       </label>
-      <button type="submit">Go</button>
+      <button type="submit">Поехали</button>
     </form>
-    <p class="output"></p>
+
+    <div class="output"></div>
+
     <script src="js/index.js" type="module"></script>
   </body>
 </html>

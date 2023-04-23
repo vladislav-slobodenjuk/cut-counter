@@ -1,3 +1,9 @@
+const refs = {
+  productForm: document.querySelector(".product-form"),
+  // productSelect: document.querySelector(".product"),
+  output: document.querySelector(".output"),
+};
+
 const PRODUCTS = {
   hartBlue: {
     top: 440,
@@ -5,7 +11,7 @@ const PRODUCTS = {
     atBox: 18,
     onPallet: 64,
   },
-  bars: {
+  bars_16: {
     top: 150,
     bottom: 0,
     atBox: 12,
@@ -27,6 +33,7 @@ const PRODUCTS = {
 };
 
 function countProductCut(product, BoxQuantity) {
+  if (!(BoxQuantity >= 1)) return "";
   const { top, bottom, atBox, onPallet } = product;
   const CutQuantity = BoxQuantity * atBox;
 
@@ -39,12 +46,30 @@ function countProductCut(product, BoxQuantity) {
     } штук`;
 
   if (bottom > 0) {
-    return `Верх: ${countCut(CutQuantity, top)}\nНиз: ${countCut(
-      CutQuantity,
-      bottom
-    )}\nНа выходе: ${countPallets()}`;
+    return `<p>Верх (${top}): ${countCut(CutQuantity, top)}<br>
+            Низ (${bottom}): ${countCut(CutQuantity, bottom)}<br>
+            На выходе: ${countPallets()}</p>`;
   }
-  return `Верх: ${countCut(CutQuantity, top)}\nНа выходе: ${countPallets()}`;
+  return `<p>Верх (${top}): ${countCut(CutQuantity, top)}<br>
+  На выходе: ${countPallets()}</p>`;
 }
 
-console.log(countProductCut(PRODUCTS.hartBlue, 87));
+function createMarkup(product, amount) {
+  return countProductCut(PRODUCTS[product], amount);
+}
+
+// console.log(countProductCut(PRODUCTS.hartBlue, 87));
+
+refs.productForm.addEventListener("submit", onFormSubmit);
+
+function onFormSubmit(e) {
+  e.preventDefault();
+
+  const {
+    amount: { value: amountValue },
+    product: { value: productValue },
+  } = e.target.elements;
+
+  const markUp = countProductCut(PRODUCTS[productValue], amountValue);
+  refs.output.innerHTML = markUp;
+}
