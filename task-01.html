@@ -5,44 +5,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 1</title>
-    <link rel="stylesheet" href="css/common.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="css/common.css" /> -->
   </head>
+
   <body>
-    <p><a href="index.html">Go back</a></p>
+    <!-- <p><a href="index.html">Go back</a></p> -->
+    <div class="container">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo left">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-small-only">
+            <li><a href="#">Sass</a></li>
+            <li><a href="#">Components</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <ul id="categories">
-      <li class="item">
-        <h2>Animals</h2>
+      <!-- <div class="divider"></div> -->
+      <div class="section"></div>
+      <div class="section">
+        <div class="row">
+          <form class="col s12 m6 xl4 offset-m3 offset-xl4 center">
+            <!--  -->
+            <div class="row">
+              <div class="input-field col s12">
+                <select class="icons">
+                  <!-- <option value="" disabled selected>Выбери</option> -->
+                  <option value="hartBlue" data-icon="./images/heart_blue.webp">
+                    Синие Сердца
+                  </option>
+                  <option value="bars_16" data-icon="./images/mu_bars.jpeg">
+                    Батончики 16шт
+                  </option>
+                  <option value="guliver_20" data-icon="./images/guliver.jpg">
+                    Гуливер 5шт
+                  </option>
+                  <option
+                    value="nightMix"
+                    data-icon="./images/chocko_night.jpg"
+                  >
+                    Шок. Ночь Микс
+                  </option>
+                </select>
+                <label>Продукция</label>
+              </div>
+            </div>
 
-        <ul>
-          <li>Cat</li>
-          <li>Hamster</li>
-          <li>Horse</li>
-          <li>Parrot</li>
-        </ul>
-      </li>
-      <li class="item">
-        <h2>Products</h2>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  required
+                  id="amount"
+                  name="amount"
+                  type="number"
+                  class="validate center-align"
+                  min="1"
+                  autocomplete="off"
+                />
+                <label for="amount">Количество ящиков</label>
+                <span
+                  class="helper-text"
+                  data-error="сколько ящиков?"
+                  data-success="👍"
+                ></span>
+              </div>
+            </div>
 
-        <ul>
-          <li>Bread</li>
-          <li>Prasley</li>
-          <li>Cheese</li>
-        </ul>
-      </li>
-      <li class="item">
-        <h2>Technologies</h2>
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              Поехали
+              <!-- <i class="material-icons right">send</i> -->
+            </button>
 
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node.js</li>
-        </ul>
-      </li>
-    </ul>
+            <!-- <div class="row">
+          <div class="col s12">
+            This is an inline input field:
+            <div class="input-field inline">
+              <input id="email_inline" type="email" class="validate" />
+              <label for="email_inline">Email</label>
+              <span class="helper-text" data-error="wrong" data-success="right"
+                >Helper text</span
+              >
+            </div>
+          </div>
+        </div> -->
+            <!--  -->
+          </form>
+        </div>
+      </div>
+    </div>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+      integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="js/task-01.js" type="module"></script>
   </body>
 </html>
