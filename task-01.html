@@ -12,7 +12,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- <link rel="stylesheet" href="css/common.css" /> -->
   </head>
 
   <body>
@@ -29,16 +28,16 @@
         </div>
       </nav>
 
-      <!-- <div class="divider"></div> -->
       <div class="section"></div>
+      <!-- form section -->
       <div class="section">
         <div class="row">
-          <form class="col s12 m6 xl4 offset-m3 offset-xl4 center">
+          <form class="product-form col s12 m6 xl4 offset-m3 offset-xl4 center">
             <!--  -->
             <div class="row">
               <div class="input-field col s12">
-                <select class="icons">
-                  <!-- <option value="" disabled selected>Выбери</option> -->
+                <select class="product" name="product">
+                  <option value="" disabled selected>Выбери</option>
                   <option value="hartBlue" data-icon="./images/heart_blue.webp">
                     Синие Сердца
                   </option>
@@ -87,21 +86,13 @@
               Поехали
               <!-- <i class="material-icons right">send</i> -->
             </button>
-
-            <!-- <div class="row">
-          <div class="col s12">
-            This is an inline input field:
-            <div class="input-field inline">
-              <input id="email_inline" type="email" class="validate" />
-              <label for="email_inline">Email</label>
-              <span class="helper-text" data-error="wrong" data-success="right"
-                >Helper text</span
-              >
-            </div>
-          </div>
-        </div> -->
-            <!--  -->
           </form>
+        </div>
+      </div>
+      <!-- output section -->
+      <div class="section">
+        <div class="row">
+          <div class="output col s12 m6 xl4 offset-m3 offset-xl4 center"></div>
         </div>
       </div>
     </div>

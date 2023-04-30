@@ -1,5 +1,4 @@
 import { PRODUCTS } from "./products.js";
-// console.log(PRODUCTS);
 
 const refs = {
   productForm: document.querySelector(".product-form"),
