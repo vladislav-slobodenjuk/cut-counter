@@ -14,17 +14,84 @@ document.addEventListener("DOMContentLoaded", function () {
   // instance = M.FormSelect.getInstance(refs.productSelect);
 });
 
-function countProductCut(product, BoxQuantity) {
-  if (!(BoxQuantity >= 1)) return "";
+refs.productForm.addEventListener("submit", onFormSubmit);
+
+function onFormSubmit(e) {
+  e.preventDefault();
+
+  const {
+    amount: { value: amountValue },
+    product: { value: productValue },
+  } = e.target.elements;
+  console.log(productValue);
+
+  const selectedProduct = PRODUCTS.find((item) => item.name === productValue);
+  // const markUp = countProductCut(selectedProduct, amountValue);
+
+  const markUp = createMarkup(selectedProduct, amountValue);
+  refs.output.innerHTML = markUp;
+  e.target.reset();
+}
+
+function createMarkup(product, boxQuantity) {
+  const { textName, parts, atBox, onPallet } = product;
+  const overalQuantity = boxQuantity * atBox;
+
+  const partsMarkup = createPartsMarkup(parts, overalQuantity);
+  const palletsMarkup = createPalletsMarkup(boxQuantity, onPallet);
+  return createCardMarkup({ textName, partsMarkup, palletsMarkup });
+}
+
+function createCardMarkup({ textName, partsMarkup, palletsMarkup }) {
+  return `<div class="row">
+              <div class="col s12">
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">${textName}</span>
+                      ${partsMarkup}
+                      ${palletsMarkup}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+}
+
+function createPalletsMarkup(boxQuantity, { boxes, atRow }) {
+  return `<p>
+            На выходе:
+            ${Math.floor(boxQuantity / boxes)} полных,
+            ${boxQuantity % boxes} штук
+          </p>
+          <p>
+            (${Math.floor((boxQuantity % boxes) / atRow)} ряда
+            ${Math.floor((boxQuantity % boxes) % atRow)} штук)
+          </p>`;
+}
+
+function createPartsMarkup(items, overalQuantity) {
+  return items
+    .map(({ textName, quantity }) => {
+      return `<p>
+                ${textName} (${quantity}): 
+                ${Math.floor(overalQuantity / quantity)} пачек и 
+                ${overalQuantity % quantity} штук
+              </p>`;
+    })
+    .join("");
+}
+
+function countProductCut(product, boxQuantity) {
+  if (!(boxQuantity >= 1)) return "";
   const { top, bottom, atBox, onPallet } = product;
-  const CutQuantity = BoxQuantity * atBox;
+  const CutQuantity = boxQuantity * atBox;
 
   const countCut = (quantity, cutType) =>
     `${Math.floor(quantity / cutType)} пачек и ${quantity % cutType} штук`;
 
   const countPallets = () =>
-    `${Math.floor(BoxQuantity / onPallet)} полных и ${
-      BoxQuantity % onPallet
+    `${Math.floor(boxQuantity / onPallet)} полных и ${
+      boxQuantity % onPallet
     } штук`;
 
   if (bottom > 0) {
@@ -46,30 +113,3 @@ function countProductCut(product, BoxQuantity) {
   return `<p>Верх (${top}): ${countCut(CutQuantity, top)}<br>
   На выходе: ${countPallets()}</p>`;
 }
-
-// function createMarkup(product, amount) {
-//   return countProductCut(PRODUCTS[product], amount);
-// }
-
-// console.log(countProductCut(PRODUCTS.hartBlue, 87));
-
-refs.productForm.addEventListener("submit", onFormSubmit);
-
-function onFormSubmit(e) {
-  e.preventDefault();
-
-  const {
-    amount: { value: amountValue },
-    product: { value: productValue },
-  } = e.target.elements;
-
-  console.log(productValue);
-
-  // instance = M.FormSelect.getInstance(refs.productSelect);
-  console.log(instance.getSelectedValues()[0]);
-
-  const markUp = countProductCut(PRODUCTS[productValue], amountValue);
-  refs.output.innerHTML = markUp;
-}
-
-function create(params) {}

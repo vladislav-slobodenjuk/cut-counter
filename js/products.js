@@ -1,27 +1,81 @@
-export const PRODUCTS = {
-  hartBlue: {
-    top: 440,
-    bottom: 220,
+export const PRODUCTS = [
+  {
+    name: "hartBlue",
+    textName: "Синие Сердца",
+    parts: [
+      {
+        name: "top",
+        textName: "Верх",
+        quantity: 440,
+      },
+      {
+        name: "bottom",
+        textName: "Низ",
+        quantity: 220,
+      },
+    ],
     atBox: 18,
-    onPallet: 64,
+    onPallet: {
+      boxes: 64,
+      atRow: 8,
+    },
   },
-  bars_16: {
-    top: 150,
-    bottom: 0,
+  {
+    name: "bars_16",
+    textName: "Батоны 16шт",
+    parts: [
+      {
+        name: "top",
+        textName: "Шоубоксы",
+        quantity: 150,
+      },
+    ],
     atBox: 12,
-    onPallet: 64,
+    onPallet: {
+      boxes: 64,
+      atRow: 8,
+    },
   },
-  guliver_20: {
-    top: 240,
-    bottom: 20,
+  {
+    name: "guliver_20",
+    textName: "Гуливер 5шт",
+    parts: [
+      {
+        name: "top",
+        textName: "Коробки",
+        quantity: 240,
+      },
+    ],
     atBox: 20,
-    onPallet: 120,
+    onPallet: {
+      boxes: 120,
+      atRow: 12,
+    },
   },
-  nightMix: {
-    top: 300,
-    bottom: 300,
-    correx: 450,
+  {
+    name: "nightMix",
+    textName: "Синие Сердца",
+    parts: [
+      {
+        name: "top",
+        textName: "Верх",
+        quantity: 300,
+      },
+      {
+        name: "bottom",
+        textName: "Низ",
+        quantity: 300,
+      },
+      {
+        name: "correx",
+        textName: "Коррекс",
+        quantity: 240,
+      },
+    ],
     atBox: 9,
-    onPallet: 50,
+    onPallet: {
+      boxes: 50,
+      atRow: 10,
+    },
   },
-};
+];
