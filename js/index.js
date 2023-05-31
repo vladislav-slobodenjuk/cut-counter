@@ -28,10 +28,6 @@ function countProductCut(product, BoxQuantity) {
   На выходе: ${countPallets()}</p>`;
 }
 
-// function createMarkup(product, amount) {
-//   return countProductCut(PRODUCTS[product], amount);
-// }
-
 // console.log(countProductCut(PRODUCTS.hartBlue, 87));
 
 refs.productForm.addEventListener("submit", onFormSubmit);

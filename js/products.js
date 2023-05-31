@@ -37,7 +37,7 @@ export const PRODUCTS = [
     },
   },
   {
-    name: "guliver_20",
+    name: "guliver_5",
     textName: "Гуливер 5шт",
     parts: [
       {
@@ -76,6 +76,43 @@ export const PRODUCTS = [
     onPallet: {
       boxes: 50,
       atRow: 10,
+    },
+  },
+  {
+    name: "charmMix",
+    textName: "Шарм 276г",
+    parts: [
+      {
+        name: "top",
+        textName: "Верх",
+        quantity: 750,
+      },
+      {
+        name: "bottom",
+        textName: "Низ",
+        quantity: 50,
+      },
+    ],
+    atBox: 7,
+    onPallet: {
+      boxes: 42,
+      atRow: 6,
+    },
+  },
+  {
+    name: "guliver_25",
+    textName: "Гуливер 25шт",
+    parts: [
+      {
+        name: "top",
+        textName: "Шоубоксы",
+        quantity: 20,
+      },
+    ],
+    atBox: 1,
+    onPallet: {
+      boxes: 462,
+      atRow: 42,
     },
   },
 ];

@@ -8,10 +8,8 @@ const refs = {
 
 let instance;
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   instance = M.FormSelect.init(refs.productSelect);
-  // console.log(instance);
-  // instance = M.FormSelect.getInstance(refs.productSelect);
 });
 
 refs.productForm.addEventListener("submit", onFormSubmit);
@@ -30,7 +28,7 @@ function onFormSubmit(e) {
 
   const markUp = createMarkup(selectedProduct, amountValue);
   refs.output.innerHTML = markUp;
-  e.target.reset();
+  // e.target.reset();
 }
 
 function createMarkup(product, boxQuantity) {
