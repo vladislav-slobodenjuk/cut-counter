@@ -115,4 +115,25 @@ export const PRODUCTS = [
       atRow: 42,
     },
   },
+  {
+    name: "trufleMix",
+    textName: "Трюфель/Азорика микс",
+    parts: [
+      {
+        name: "top",
+        textName: "Верх",
+        quantity: 200,
+      },
+      {
+        name: "bottom",
+        textName: "Низ",
+        quantity: 100,
+      },
+    ],
+    atBox: 8,
+    onPallet: {
+      boxes: 50,
+      atRow: 10,
+    },
+  },
 ];
